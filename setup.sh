@@ -2,17 +2,28 @@
 set -ex
 
 echo "[INFO] Downloading script files.."
-git clone https://AMBEV-SA@dev.azure.com/AMBEV-SA/AMBEVTECH-SUPPLY-BREWTECH-SODAVISION/_git/mvp-sodalens ~/sodalens
+git clone https://AMBEV-SA@dev.azure.com/AMBEV-SA/AMBEVTECH-SUPPLY-BREWTECH-SODAVISION/_git/mvp-edge-device ~/sodavision
 
 echo "[INFO] Setting script files permissions.."
-cd ~/sodalens
-sudo chmod +x ~/sodalens/*.sh
+cd ~/sodavision/sodalens/
+sudo chmod +x ~/sodavision/sodalens/*.sh
 
 echo "[INFO] Python Virtual Environment"
-python -m venv ~/sodalens/.venv
-source ~/sodalens/.venv/bin/activate
+python -m venv ~/sodavision/sodalens/.venv
+source ~/sodavision/sodalens/.venv/bin/activate
 pip install -r requirements.txt
 
 echo "[INFO] Creating shortcuts"
-ln -s ~/sodalens/capture.sh ~/Desktop/capturador
-ln -s ~/sodalens/datasets ~/Desktop/datasets
+ln -s ~/sodavision/sodalens/capture.sh ~/Desktop/capturador
+ln -s ~/sodavision/sodalens/datasets ~/Desktop/datasets
+
+echo "[INFO] Instalando Docker"
+~/sodavision/sodalens/docker-installer.sh
+
+exec $SHELL
+
+echo "[INFO] Montando as imagens Docker"
+cd ~/sodavision
+sudo docker compose up -d --build
+
+sudo shutdown -r now
