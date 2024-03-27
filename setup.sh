@@ -22,8 +22,6 @@ ln -s ~/sodavision/sodalens/datasets ~/Desktop/datasets
 echo "[INFO] Instalando Docker"
 ~/sodavision/sodalens/docker-installer.sh
 
-exec $SHELL
-
 echo "[INFO] Montando as imagens Docker"
 cd ~/sodavision
 sudo docker compose up -d --build
