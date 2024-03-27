@@ -16,8 +16,13 @@ source ~/sodavision/sodalens/.venv/bin/activate
 pip install -r requirements.txt
 
 echo "[INFO] Creating shortcuts"
-ln -s ~/sodavision/sodalens/capture.sh ~/Desktop/capturador
-ln -s ~/sodavision/sodalens/datasets ~/Desktop/datasets
+if [ ! -e "~/Desktop/capturador" ] then
+    ln -s ~/sodavision/sodalens/capture.sh ~/Desktop/capturador
+fi
+
+if [ ! -d "~/Desktop/datasets" ]; then
+    ln -s ~/sodavision/sodalens/datasets ~/Desktop/datasets
+fi
 
 echo "[INFO] Instalando Docker"
 ~/sodavision/sodalens/docker-installer.sh
