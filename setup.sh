@@ -1,27 +1,27 @@
 #!/bin/bash
 set -ex
 
-echo "[INFO] Downloading script files.."
+echo "[INFO] Instalando arquivos de script.."
 git clone https://AMBEV-SA@dev.azure.com/AMBEV-SA/AMBEVTECH-SUPPLY-BREWTECH-SODAVISION/_git/mvp-edge-device ~/sodavision
 cd ~/sodavision/
 git checkout back-front
 
-echo "[INFO] Setting script files permissions.."
+echo "[INFO] Adicionando permissões aos scripts.."
 cd ~/sodavision/sodalens/
 sudo chmod +x ~/sodavision/sodalens/*.sh
 
-echo "[INFO] Python Virtual Environment"
+echo "[INFO] Python Ambiente Virtual"
 python -m venv ~/sodavision/sodalens/.venv
 source ~/sodavision/sodalens/.venv/bin/activate
 pip install -r requirements.txt
 
-echo "[INFO] Creating shortcuts"
+echo "[INFO] Criando Atalhos"
 if [ ! -e ~/Desktop/capturador ]; then 
-    ln -s ~/sodavision/sodalens/capture.sh ~/Desktop/capturador
+    ln -sf ~/sodavision/sodalens/capture.sh ~/Desktop/capturador
 fi 
 
 if [ ! -d ~/Desktop/datasets ]; then 
-    ln -s ~/sodavision/sodalens/datasets ~/Desktop/datasets
+    ln -sf ~/sodavision/sodalens/datasets ~/Desktop/datasets
 fi 
 
 echo "[INFO] Instalando Docker"
