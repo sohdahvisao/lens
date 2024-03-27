@@ -3,6 +3,7 @@ set -ex
 
 echo "[INFO] Downloading script files.."
 git clone https://AMBEV-SA@dev.azure.com/AMBEV-SA/AMBEVTECH-SUPPLY-BREWTECH-SODAVISION/_git/mvp-edge-device ~/sodavision
+cd ~/sodavision
 git checkout back-front
 
 echo "[INFO] Setting script files permissions.."
