@@ -20,12 +20,16 @@ if [ ! -e ~/Desktop/capturador ]; then
     ln -sf ~/sodavision/sodalens/capture.sh ~/Desktop/capturador
 fi 
 
+if [ ! -e ~/Desktop/zipper ]; then 
+    ln -sf ~/sodavision/sodalens/zipper.sh ~/Desktop/zipper
+fi 
+
 if [ ! -d ~/Desktop/datasets ]; then 
     ln -sf ~/sodavision/sodalens/datasets ~/Desktop/datasets
 fi 
 
-if [ ! -d ~/Desktop/zipper ]; then 
-    ln -sf ~/sodavision/sodalens/zipper.sh ~/Desktop/zipper
+if [ ! -d ~/Desktop/modelos ]; then 
+    ln -sf ~/sodavision/sodalens/modelos ~/Desktop/modelos
 fi 
 
 echo "[INFO] Instalando Docker"
