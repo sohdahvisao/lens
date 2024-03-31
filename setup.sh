@@ -24,6 +24,10 @@ if [ ! -d ~/Desktop/datasets ]; then
     ln -sf ~/sodavision/sodalens/datasets ~/Desktop/datasets
 fi 
 
+if [ ! -d ~/Desktop/zipper ]; then 
+    ln -sf ~/sodavision/sodalens/zipper.sh ~/Desktop/zipper
+fi 
+
 echo "[INFO] Instalando Docker"
 ~/sodavision/sodalens/docker-installer.sh
 
