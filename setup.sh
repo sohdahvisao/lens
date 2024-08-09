@@ -4,7 +4,6 @@ set -ex
 echo "[INFO] Instalando arquivos de script.."
 git clone https://AMBEV-SA@dev.azure.com/AMBEV-SA/AMBEVTECH-SUPPLY-BREWTECH-SODAVISION/_git/mvp-edge-device ~/sodavision
 cd ~/sodavision/
-git checkout back-front
 
 echo "[INFO] Adicionando permissões aos scripts.."
 cd ~/sodavision/sodalens/
