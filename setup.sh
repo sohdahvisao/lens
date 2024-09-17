@@ -31,6 +31,10 @@ if [ ! -d ~/Desktop/modelos ]; then
     ln -sf ~/sodavision/sodalens/modelos ~/Desktop/modelos
 fi 
 
+if [ ! -d ~/Desktop/update ]; then
+    ln -sf ~/sodavision/sodalens/update-vision.sh ~/Desktop/update
+fi
+
 echo "[INFO] Instalando Docker"
 ~/sodavision/sodalens/docker-installer.sh
 
