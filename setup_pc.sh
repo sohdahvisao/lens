@@ -48,7 +48,7 @@ fi
 echo "[INFO] Instalando Docker"
 ~/sodavision/sodalens/docker-installer.sh
 
-sudo exec $SHELL 
+sudo su
 
 echo "[INFO] Montando as imagens Docker"
 cd ~/sodavision
