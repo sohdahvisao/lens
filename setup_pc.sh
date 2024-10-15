@@ -3,6 +3,7 @@ set -ex
 
 echo "[INFO] Instalando dependencias.."
 sudo apt update
+sudo apt install curl
 sudo apt install git
 sudo apt install python-is-python3
 alias python=python3
