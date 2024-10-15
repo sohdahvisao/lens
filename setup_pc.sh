@@ -47,6 +47,8 @@ echo "[INFO] Instalando Docker"
 
 echo "[INFO] Montando as imagens Docker"
 cd ~/sodavision
+
+git checkout feat-arquitetura-minipc
 make build
 
-sudo shutdown -r now
+sudo shutdown -r 0
