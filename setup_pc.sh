@@ -21,6 +21,9 @@ python -m venv ~/sodavision/sodalens/.venv
 source ~/sodavision/sodalens/.venv/bin/activate
 pip install -r requirements.txt
 
+echo "[INFO] Criando diretorios"
+[ -d "$HOME/Desktop" ] || mkdir "$HOME/Desktop"
+
 echo "[INFO] Criando Atalhos"
 if [ ! -e ~/Desktop/capturador ]; then
   ln -sf ~/sodavision/sodalens/capture.sh ~/Desktop/capturador
