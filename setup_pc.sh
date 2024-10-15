@@ -52,6 +52,6 @@ echo "[INFO] Montando as imagens Docker"
 cd ~/sodavision
 
 git checkout feat-arquitetura-minipc
-make build
+sudo make build
 
 sudo shutdown -r 0
