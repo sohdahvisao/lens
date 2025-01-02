@@ -13,6 +13,8 @@ echo "[INFO] Instalando arquivos de script.."
 git clone https://AMBEV-SA@dev.azure.com/AMBEV-SA/ambevtech-brewtech-soda-vision/_git/edge-device ~/sodavision
 cd ~/sodavision/
 
+git checkout feat-arquitetura-minipc
+
 echo "[INFO] Adicionando permissões aos scripts.."
 cd ~/sodavision/sodalens/
 sudo chmod +x ~/sodavision/sodalens/*.sh
@@ -52,7 +54,5 @@ echo "[INFO] Instalando Docker"
 echo "[INFO] Montando as imagens Docker"
 cd ~/sodavision
 
-git checkout feat-arquitetura-minipc
 sudo make build
-
 sudo shutdown -r 0
