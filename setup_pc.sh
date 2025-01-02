@@ -1,6 +1,12 @@
 #!/bin/bash
 set -ex
 
+# Lê o primeiro parâmetro (por exemplo, "usb" ou "ip")
+CAMERA_MODE="$1"
+
+# Define valor padrão ("usb") caso não seja informado
+CAMERA_MODE="${CAMERA_MODE:-usb}"
+
 echo "[INFO] Instalando dependencias.."
 sudo apt update
 sudo apt install curl
@@ -54,5 +60,11 @@ echo "[INFO] Instalando Docker"
 echo "[INFO] Montando as imagens Docker"
 cd ~/sodavision
 
-sudo make build
+echo "[INFO] O modo de câmera é: $CAMERA_MODE"
+if [ "$CAMERA_MODE" == "usb" ]; then
+  sudo make build CAMERA=usb
+else
+  sudo make build
+fi
+
 sudo shutdown -r 0
