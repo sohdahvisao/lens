@@ -64,7 +64,7 @@ echo "[INFO] O modo de câmera é: $CAMERA_MODE"
 if [ "$CAMERA_MODE" == "usb" ]; then
   sudo make build CAMERA=usb
 else
-  sudo make build
+  sudo make build CAMERA=$CAMERA_MODE
 fi
 
 sudo shutdown -r 0
