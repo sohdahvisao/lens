@@ -12,8 +12,6 @@ echo "[INFO] Instalando arquivos de script.."
 git clone https://AMBEV-SA@dev.azure.com/AMBEV-SA/ambevtech-brewtech-soda-vision/_git/edge-device ~/sodavision
 cd ~/sodavision/
 
-git checkout test-arquitetura-raspberry
-
 echo "[INFO] Adicionando permissões aos scripts.."
 cd ~/sodavision/sodalens/
 sudo chmod +x ~/sodavision/sodalens/*.sh
