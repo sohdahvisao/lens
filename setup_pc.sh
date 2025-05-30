@@ -19,7 +19,7 @@ echo "[INFO] Instalando arquivos de script.."
 git clone https://AMBEV-SA@dev.azure.com/AMBEV-SA/ambevtech-brewtech-soda-vision/_git/edge-device ~/sodavision
 cd ~/sodavision/
 
-git checkout feat-arquitetura-minipc
+git checkout test-arquitetura-minipc
 
 echo "[INFO] Adicionando permissões aos scripts.."
 cd ~/sodavision/sodalens/
