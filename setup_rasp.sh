@@ -16,6 +16,11 @@ echo "[INFO] Adicionando permissões aos scripts.."
 cd ~/sodavision/sodalens/
 sudo chmod +x ~/sodavision/sodalens/*.sh
 
+echo "[INFO] Criando Atalhos"
+if [ ! -e ~/Desktop/cameraUSB ]; then
+  ln -sf ~/sodavision/sodalens/get_camera.sh ~/Desktop/cameraUSB
+fi
+
 echo "[INFO] Instalando Docker"
 ~/sodavision/sodalens/docker-installer.sh
 
@@ -24,6 +29,14 @@ cd ~/sodavision
 
 echo "[INFO] O modo de câmera é: $CAMERA_MODE"
 if [ "$CAMERA_MODE" = "usb" ]; then
+
+    echo "[INFO] Tentando detectar câmera USB..."
+  if ~/sodavision/sodalens/get_camera.sh; then
+    echo "[INFO] Câmera detectada com sucesso."
+  else
+    echo "[AVISO] Nenhuma câmera funcional detectada. Continuando mesmo assim..."
+  fi
+
   # Se for USB, chama o Docker Compose com o override (por exemplo, docker-compose.webcam.yml)
   sudo docker compose -f docker-compose.yml -f docker-compose.webcam.yml up -d --build
 else
