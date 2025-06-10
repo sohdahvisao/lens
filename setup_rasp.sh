@@ -1,3 +1,4 @@
+#setup_rasp.sh
 #!/bin/bash
 set -ex
 
@@ -15,30 +16,9 @@ echo "[INFO] Adicionando permissões aos scripts.."
 cd ~/sodavision/sodalens/
 sudo chmod +x ~/sodavision/sodalens/*.sh
 
-echo "[INFO] Python Ambiente Virtual"
-python -m venv ~/sodavision/sodalens/.venv
-source ~/sodavision/sodalens/.venv/bin/activate
-pip install -r requirements.txt
-
 echo "[INFO] Criando Atalhos"
-if [ ! -e ~/Desktop/capturador ]; then
-  ln -sf ~/sodavision/sodalens/capture.sh ~/Desktop/capturador
-fi
-
-if [ ! -e ~/Desktop/zipper ]; then
-  ln -sf ~/sodavision/sodalens/zipper.sh ~/Desktop/zipper
-fi
-
-if [ ! -d ~/Desktop/datasets ]; then
-  ln -sf ~/sodavision/sodalens/datasets ~/Desktop/datasets
-fi
-
-if [ ! -d ~/Desktop/modelos ]; then
-  ln -sf ~/sodavision/sodalens/modelos ~/Desktop/modelos
-fi
-
-if [ ! -d ~/Desktop/update ]; then
-  ln -sf ~/sodavision/sodalens/update-vision.sh ~/Desktop/update
+if [ ! -e ~/Desktop/cameraUSB ]; then
+  ln -sf ~/sodavision/sodalens/get_camera.sh ~/Desktop/cameraUSB
 fi
 
 echo "[INFO] Instalando Docker"
@@ -49,6 +29,14 @@ cd ~/sodavision
 
 echo "[INFO] O modo de câmera é: $CAMERA_MODE"
 if [ "$CAMERA_MODE" = "usb" ]; then
+
+    echo "[INFO] Tentando detectar câmera USB..."
+  if ~/sodavision/sodalens/get_camera.sh; then
+    echo "[INFO] Câmera detectada com sucesso."
+  else
+    echo "[AVISO] Nenhuma câmera funcional detectada. Continuando mesmo assim..."
+  fi
+
   # Se for USB, chama o Docker Compose com o override (por exemplo, docker-compose.webcam.yml)
   sudo docker compose -f docker-compose.yml -f docker-compose.webcam.yml up -d --build
 else
