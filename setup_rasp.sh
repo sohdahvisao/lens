@@ -21,6 +21,9 @@ if [ ! -e ~/Desktop/cameraUSB ]; then
   ln -sf ~/sodavision/sodalens/get_camera.sh ~/Desktop/cameraUSB
 fi
 
+echo "[INFO] Criando .env"
+~/sodavision/sodalens/create-env.sh
+
 echo "[INFO] Instalando Docker"
 ~/sodavision/sodalens/docker-installer.sh
 
